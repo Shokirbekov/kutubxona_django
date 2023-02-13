@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tanlangan admin ma'lumotini o'zgartirish</title>
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        *{
+            font-family: 'Poppins';
+        }
+
+        button{
+            padding: 10px;
+            border: none;
+            background-color: #face30;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 20px;
+        }
+
+        form input{
+            padding: 10px;
+            border: 1px solid grey;
+            border-radius: 4px;
+            font-size: 20px;
+        }
+
+        ::placeholder{
+            color: blue;
+            opacity: 0.6;
+        }
+
+        a{
+            color: red;
+            text-decoration: none;
+        }
+
+        span{
+            color: blue;
+        }
+
+        .qoshish form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        ::selection {
+            background: red; /* Safari */
+        }
+
+        ::-moz-selection {
+            background: red; /* Firefox */
+        }
+
+        .orqaga{
+          margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h1>Admin ma'lumotini o'zgartirish uchun:</h1>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <div class="qoshish">
+      <form method="post">{%csrf_token%}
+        <label>Ismi: </label>
+      <input type="text" name="i" value="{{admin.ism}}">
+        <label>Ish vaqti: </label>
+        <input type="text" name="i_v" value="{{admin.ish_vaqti}}">
+      <button type="submit">Saqlash</button>
+    </form>
+    </div>
+    <button class="orqaga"><a href="/adminlar/">Orqaga qaytish</a></button>
+  </center>
+</body>
+</html>

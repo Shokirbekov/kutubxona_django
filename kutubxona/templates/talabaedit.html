@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talaba o'zgartirish</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        *{
+            font-family: 'Poppins';
+        }
+
+        button{
+            padding: 10px;
+            border: none;
+            background-color: #face30;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 20px;
+        }
+
+        form input{
+            padding: 10px;
+            border: 1px solid grey;
+            border-radius: 4px;
+            font-size: 20px;
+        }
+
+        ::placeholder{
+            color: blue;
+            opacity: 0.6;
+        }
+
+        a{
+            color: red;
+            text-decoration: none;
+        }
+
+        span{
+            color: blue;
+        }
+
+        .qoshish form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .qoshish form button a{
+          color: black;
+        }
+
+        .orqaga{
+          margin-top: 20px;
+          color: black;
+         }
+
+         label{
+          color: green;
+          font-size: 25px;
+         }
+  </style>
+</head>
+<body>
+  <center>
+    <h1>Talaba ma'lumotini o'zgartirish uchun:</h1>
+    <br>
+    <hr>
+    <br>
+    <div class="qoshish">
+      <form method="post">{%csrf_token%}
+        <label>Ism: </label>
+      <input type="text" name="i" value="{{talaba.ism}}">
+        <label>Kurs: </label>
+      <input type="number" name="k" value="{{talaba.kurs}}">
+        <label>Kitob soni: </label>
+      <input type="number" name="k_s" value="{{talaba.kitoblar_soni}}">
+        <label>Bitiruvchi: </label>
+        {% if talaba.bitiruvchi %}
+        <input type="checkbox" name="b" checked>
+        {% else %}
+        <input type="checkbox" name="b">
+        {% endif %}
+      <button type="submit">Saqlash</button>
+    </form>
+    </div>
+    <button class="orqaga"><a href="/talaba/">Orqaga qaytish</a></button>
+  </center>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Muallif haqida to'liq ma'lumot</title>
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        *{
+            font-family: 'Poppins';
+        }
+
+        button{
+            padding: 10px;
+            border: none;
+            background-color: #face30;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 20px;
+        }
+
+        form input{
+            padding: 10px;
+            border: 1px solid;
+            border-radius: 4px;
+            font-size: 20px;
+        }
+
+        ::placeholder{
+            color: blue;
+            opacity: 0.6;
+        }
+
+        a{
+            color: red;
+            text-decoration: none;
+        }
+
+        span{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Tanlangan muallif haqidagi to'liq ma'lumot: </h1>
+    <br>
+    <hr>
+    <br>
+    <h2>Ismi: <span>{{muallif.ism}}</span></h2>
+    {%if muallif.tirik%}
+    <h2>Muallif tirik va u <span>{{muallif.yosh}}</span> yoshda</h2>
+    {%else%}
+    <h2>Muallif tirik emas😢</h2>
+    {%endif%}
+        {%if muallif.jins is not ''%}
+            <h2>Jinsi: <span>{{muallif.jins}}</span></h2>
+        {%endif%}
+    <h2>
+      Kitoblar soni: <span>{{muallif.kitob_soni}}</span>
+    </h2>
+    </center>
+</body>
+</html>

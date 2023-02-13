@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mualliflar</title>
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        *{
+            font-family: 'Poppins';
+        }
+
+        button{
+            padding: 10px;
+            border: none;
+            background-color: #face30;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 20px;
+        }
+
+        form input{
+            padding: 10px;
+            border: 1px solid grey;
+            border-radius: 4px;
+            font-size: 20px;
+        }
+
+        ::placeholder{
+            color: blue;
+            opacity: 0.6;
+        }
+
+        a{
+            color: red;
+            text-decoration: none;
+        }
+
+        span{
+            color: blue;
+        }
+
+        .qoshish form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .qoshish form button{
+            margin-right: 20px;
+        }
+
+        ::selection{
+            background: red;
+        }
+
+        ::-moz-selection{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Barcha Mualliflar</h1>
+        <br>
+        <form method="get">
+            <input type="text" name="qidirish" placeholder="Muallifni yozing...">
+            <button type="submit">Qidirish</button>
+        </form>
+    <br>
+    <hr>
+    <br>
+    {%for i in muallif%}
+    <h2><span>{{forloop.counter}}.</span> {{i.ism}}. To'liq ma'lumot uchun <a href="/muallif/{{i.id}}" target="_blank">bosing</a></h2>
+      <a href="/muallif_delete/{{i.id}}/"><button>O'chirish</button></a>
+    {%endfor%}
+        <br>
+        <br>
+        <hr>
+        <br>
+        <div class="qoshish">
+            <form method="post" action="/mualliflar/">{% csrf_token %}
+                {{forma}}
+                <button type="submit">Qo'shish</button>
+            </form>
+        </div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adminlar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        *{
+            font-family: 'Poppins';
+        }
+
+        button{
+            padding: 10px;
+            border: none;
+            background-color: #face30;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 20px;
+        }
+
+        form input{
+            padding: 10px;
+            border: 1px solid grey;
+            border-radius: 4px;
+            font-size: 20px;
+        }
+
+        ::placeholder{
+            color: blue;
+            opacity: 0.6;
+        }
+
+        a{
+            color: red;
+            text-decoration: none;
+        }
+
+        span{
+            color: blue;
+        }
+
+        .qoshish form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        ::selection {
+            background: red; /* Safari */
+        }
+
+        ::-moz-selection {
+            background: red; /* Firefox */
+        }
+
+        i{
+            margin-left: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+  <center>
+      <h1>Barcha adminlar</h1>
+  <br>
+  <hr>
+  <br>
+    {%for i in admin%}
+    <h2><span>{{forloop.counter}}</span>. <a href="/bitta_admin/{{i.id}}">{{i.ism}}</a></h2>
+      <a href="/admin_delete/{{i.id}}/"><button>O'chirish</button></a>
+      <a href="/admin_edit/{{i.id}}"><i class="fa-solid fa-pencil fa-2x"></i></a>
+    {%endfor%}
+        <br>
+        <br>
+        <hr>
+        <br>
+        <div class="qoshish">
+            <form method="post" action="/adminlar/">{% csrf_token %}
+                {{forma}}
+                <button type="submit">Qo'shish</button>
+            </form>
+        </div>
+  </center>
+</body>
+</html>
